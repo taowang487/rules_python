@@ -1,0 +1,27 @@
+load(":mylib.bzl", "my_py_library", "my_py_test")
+
+# gazelle:python_generation_mode file
+# gazelle:alias_kind my_py_library py_library
+# gazelle:alias_kind my_py_test py_test
+
+my_py_library(
+    name = "bar",
+    srcs = ["bar.py"],
+    visibility = ["//:__subpackages__"],
+)
+
+my_py_library(
+    name = "deleted_lib",
+    srcs = ["deleted.py"],
+    visibility = ["//:__subpackages__"],
+)
+
+my_py_test(
+    name = "bar_test",
+    srcs = ["bar_test.py"],
+)
+
+my_py_test(
+    name = "deleted_test",
+    srcs = ["deleted_test.py"],
+)
