@@ -8,6 +8,12 @@ bazel_dep(name = "bazel_skylib", version = "1.8.2")
 bazel_dep(name = "rules_python", version = "0.18.0")
 bazel_dep(name = "rules_go", version = "0.59.0", repo_name = "io_bazel_rules_go")
 bazel_dep(name = "gazelle", version = "0.47.0", repo_name = "bazel_gazelle")
+
+git_override(
+    module_name = "gazelle",
+    commit = "73215247ebf853131af5615a3d460c43530272f1",
+    remote = "https://github.com/taowang487/bazel-gazelle.git",
+)
 bazel_dep(name = "rules_cc", version = "0.0.16")
 
 local_path_override(
